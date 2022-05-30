@@ -31,7 +31,7 @@
           succeedCallBack:(void(^)(NSString *traceId, NSString *printDeviceId))succeedCallBack
            failedCallBack:(void(^)(NSString * traceId, NSString * printDeviceId,int errCode, NSString * errMsg))failedCallBack;
 
-//data支持base64+hex
+//data支持base64/hex
 +(void)printMutableDatasWithData:(NSString*)dataStr
           succeedCallBack:(void(^)(NSString *traceId, NSString *printDeviceId))succeedCallBack
            failedCallBack:(void(^)(NSString * traceId, NSString * printDeviceId,int errCode, NSString * errMsg))failedCallBack;
