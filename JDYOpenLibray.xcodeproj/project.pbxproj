@@ -1,0 +1,522 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 51;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		B44A5AAF27F59A6A00F25B0F /* JDYSignUpManager.h in Headers */ = {isa = PBXBuildFile; fileRef = B44A5AA927F59A6A00F25B0F /* JDYSignUpManager.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		B44A5AB027F59A6A00F25B0F /* JDYSignUpViewController.h in Headers */ = {isa = PBXBuildFile; fileRef = B44A5AAA27F59A6A00F25B0F /* JDYSignUpViewController.h */; };
+		B44A5AB127F59A6A00F25B0F /* JDYLocation.m in Sources */ = {isa = PBXBuildFile; fileRef = B44A5AAB27F59A6A00F25B0F /* JDYLocation.m */; };
+		B44A5AB227F59A6A00F25B0F /* JDYSignUpManager.m in Sources */ = {isa = PBXBuildFile; fileRef = B44A5AAC27F59A6A00F25B0F /* JDYSignUpManager.m */; };
+		B44A5AB327F59A6A00F25B0F /* JDYSignUpViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B44A5AAD27F59A6A00F25B0F /* JDYSignUpViewController.m */; };
+		B44A5AB427F59A6A00F25B0F /* JDYLocation.h in Headers */ = {isa = PBXBuildFile; fileRef = B44A5AAE27F59A6A00F25B0F /* JDYLocation.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		B4AEC9862807FF9400E9D884 /* JDYBillPrintManager.m in Sources */ = {isa = PBXBuildFile; fileRef = B4AEC9802807FF9400E9D884 /* JDYBillPrintManager.m */; };
+		B4AEC9872807FF9400E9D884 /* BlueToothListController.h in Headers */ = {isa = PBXBuildFile; fileRef = B4AEC9812807FF9400E9D884 /* BlueToothListController.h */; };
+		B4AEC9882807FF9400E9D884 /* BlueToothManager.h in Headers */ = {isa = PBXBuildFile; fileRef = B4AEC9822807FF9400E9D884 /* BlueToothManager.h */; };
+		B4AEC9892807FF9400E9D884 /* BlueToothListController.m in Sources */ = {isa = PBXBuildFile; fileRef = B4AEC9832807FF9400E9D884 /* BlueToothListController.m */; };
+		B4AEC98A2807FF9400E9D884 /* JDYBillPrintManager.h in Headers */ = {isa = PBXBuildFile; fileRef = B4AEC9842807FF9400E9D884 /* JDYBillPrintManager.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		B4AEC98B2807FF9400E9D884 /* BlueToothManager.m in Sources */ = {isa = PBXBuildFile; fileRef = B4AEC9852807FF9400E9D884 /* BlueToothManager.m */; };
+		C54BE64427DD9B4100165BDE /* UIColor+JDY.h in Headers */ = {isa = PBXBuildFile; fileRef = C54BE64227DD9B4100165BDE /* UIColor+JDY.h */; };
+		C54BE64527DD9B4100165BDE /* UIColor+JDY.m in Sources */ = {isa = PBXBuildFile; fileRef = C54BE64327DD9B4100165BDE /* UIColor+JDY.m */; };
+		C54BE64827DD9D2700165BDE /* JDYGradualButton.h in Headers */ = {isa = PBXBuildFile; fileRef = C54BE64627DD9D2700165BDE /* JDYGradualButton.h */; };
+		C54BE64927DD9D2700165BDE /* JDYGradualButton.m in Sources */ = {isa = PBXBuildFile; fileRef = C54BE64727DD9D2700165BDE /* JDYGradualButton.m */; };
+		C54BE64E27DDA0A300165BDE /* UIImage+JDY.h in Headers */ = {isa = PBXBuildFile; fileRef = C54BE64C27DDA0A300165BDE /* UIImage+JDY.h */; };
+		C54BE64F27DDA0A300165BDE /* UIImage+JDY.m in Sources */ = {isa = PBXBuildFile; fileRef = C54BE64D27DDA0A300165BDE /* UIImage+JDY.m */; };
+		C5C83AFF27DAF74C00D9E5BA /* JDYOpenLibray.h in Headers */ = {isa = PBXBuildFile; fileRef = C5C83AFD27DAF74C00D9E5BA /* JDYOpenLibray.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		F863D334E20A4ACB047EC981 /* Pods_JDYOpenLibray.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5E72D11B085A3D69A847C077 /* Pods_JDYOpenLibray.framework */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXFileReference section */
+		3018B3B58AB1ABE5B561B78C /* Pods-JDYOpenLibray.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-JDYOpenLibray.debug.xcconfig"; path = "Target Support Files/Pods-JDYOpenLibray/Pods-JDYOpenLibray.debug.xcconfig"; sourceTree = "<group>"; };
+		5E72D11B085A3D69A847C077 /* Pods_JDYOpenLibray.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_JDYOpenLibray.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		B44A5AA927F59A6A00F25B0F /* JDYSignUpManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JDYSignUpManager.h; sourceTree = "<group>"; };
+		B44A5AAA27F59A6A00F25B0F /* JDYSignUpViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JDYSignUpViewController.h; sourceTree = "<group>"; };
+		B44A5AAB27F59A6A00F25B0F /* JDYLocation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JDYLocation.m; sourceTree = "<group>"; };
+		B44A5AAC27F59A6A00F25B0F /* JDYSignUpManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JDYSignUpManager.m; sourceTree = "<group>"; };
+		B44A5AAD27F59A6A00F25B0F /* JDYSignUpViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JDYSignUpViewController.m; sourceTree = "<group>"; };
+		B44A5AAE27F59A6A00F25B0F /* JDYLocation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JDYLocation.h; sourceTree = "<group>"; };
+		B4AEC9802807FF9400E9D884 /* JDYBillPrintManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JDYBillPrintManager.m; sourceTree = "<group>"; };
+		B4AEC9812807FF9400E9D884 /* BlueToothListController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BlueToothListController.h; sourceTree = "<group>"; };
+		B4AEC9822807FF9400E9D884 /* BlueToothManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BlueToothManager.h; sourceTree = "<group>"; };
+		B4AEC9832807FF9400E9D884 /* BlueToothListController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BlueToothListController.m; sourceTree = "<group>"; };
+		B4AEC9842807FF9400E9D884 /* JDYBillPrintManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JDYBillPrintManager.h; sourceTree = "<group>"; };
+		B4AEC9852807FF9400E9D884 /* BlueToothManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BlueToothManager.m; sourceTree = "<group>"; };
+		C548456F27DE45FD00ADF856 /* JDYOpenLibray.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = JDYOpenLibray.bundle; sourceTree = "<group>"; };
+		C54BE64227DD9B4100165BDE /* UIColor+JDY.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIColor+JDY.h"; sourceTree = "<group>"; };
+		C54BE64327DD9B4100165BDE /* UIColor+JDY.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIColor+JDY.m"; sourceTree = "<group>"; };
+		C54BE64627DD9D2700165BDE /* JDYGradualButton.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = JDYGradualButton.h; sourceTree = "<group>"; };
+		C54BE64727DD9D2700165BDE /* JDYGradualButton.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = JDYGradualButton.m; sourceTree = "<group>"; };
+		C54BE64C27DDA0A300165BDE /* UIImage+JDY.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "UIImage+JDY.h"; sourceTree = "<group>"; };
+		C54BE64D27DDA0A300165BDE /* UIImage+JDY.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "UIImage+JDY.m"; sourceTree = "<group>"; };
+		C5C83AFA27DAF74C00D9E5BA /* JDYOpenLibray.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = JDYOpenLibray.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		C5C83AFD27DAF74C00D9E5BA /* JDYOpenLibray.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = JDYOpenLibray.h; sourceTree = "<group>"; };
+		C5C83AFE27DAF74C00D9E5BA /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		D1B6BA2279348A36B5679E6C /* Pods-JDYOpenLibray.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-JDYOpenLibray.release.xcconfig"; path = "Target Support Files/Pods-JDYOpenLibray/Pods-JDYOpenLibray.release.xcconfig"; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		C5C83AF727DAF74C00D9E5BA /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				F863D334E20A4ACB047EC981 /* Pods_JDYOpenLibray.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		92EB050A3684CDC5E19B3A71 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				5E72D11B085A3D69A847C077 /* Pods_JDYOpenLibray.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		B44A5AA827F59A6A00F25B0F /* JDYSignUp */ = {
+			isa = PBXGroup;
+			children = (
+				B44A5AA927F59A6A00F25B0F /* JDYSignUpManager.h */,
+				B44A5AAC27F59A6A00F25B0F /* JDYSignUpManager.m */,
+				B44A5AAA27F59A6A00F25B0F /* JDYSignUpViewController.h */,
+				B44A5AAD27F59A6A00F25B0F /* JDYSignUpViewController.m */,
+				B44A5AAE27F59A6A00F25B0F /* JDYLocation.h */,
+				B44A5AAB27F59A6A00F25B0F /* JDYLocation.m */,
+			);
+			path = JDYSignUp;
+			sourceTree = "<group>";
+		};
+		B4AEC97F2807FF9400E9D884 /* JDYBlueTooth */ = {
+			isa = PBXGroup;
+			children = (
+				B4AEC9842807FF9400E9D884 /* JDYBillPrintManager.h */,
+				B4AEC9802807FF9400E9D884 /* JDYBillPrintManager.m */,
+				B4AEC9812807FF9400E9D884 /* BlueToothListController.h */,
+				B4AEC9832807FF9400E9D884 /* BlueToothListController.m */,
+				B4AEC9822807FF9400E9D884 /* BlueToothManager.h */,
+				B4AEC9852807FF9400E9D884 /* BlueToothManager.m */,
+			);
+			path = JDYBlueTooth;
+			sourceTree = "<group>";
+		};
+		C54BE64127DD9B4100165BDE /* Extension */ = {
+			isa = PBXGroup;
+			children = (
+				C54BE64227DD9B4100165BDE /* UIColor+JDY.h */,
+				C54BE64327DD9B4100165BDE /* UIColor+JDY.m */,
+				C54BE64C27DDA0A300165BDE /* UIImage+JDY.h */,
+				C54BE64D27DDA0A300165BDE /* UIImage+JDY.m */,
+				C54BE64627DD9D2700165BDE /* JDYGradualButton.h */,
+				C54BE64727DD9D2700165BDE /* JDYGradualButton.m */,
+			);
+			path = Extension;
+			sourceTree = "<group>";
+		};
+		C5C83AF027DAF74C00D9E5BA = {
+			isa = PBXGroup;
+			children = (
+				C5C83AFC27DAF74C00D9E5BA /* JDYOpenLibray */,
+				C5C83AFB27DAF74C00D9E5BA /* Products */,
+				CF21005581582DF6A7032074 /* Pods */,
+				92EB050A3684CDC5E19B3A71 /* Frameworks */,
+			);
+			sourceTree = "<group>";
+		};
+		C5C83AFB27DAF74C00D9E5BA /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				C5C83AFA27DAF74C00D9E5BA /* JDYOpenLibray.framework */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		C5C83AFC27DAF74C00D9E5BA /* JDYOpenLibray */ = {
+			isa = PBXGroup;
+			children = (
+				C5C83AFD27DAF74C00D9E5BA /* JDYOpenLibray.h */,
+				B44A5AA827F59A6A00F25B0F /* JDYSignUp */,
+				B4AEC97F2807FF9400E9D884 /* JDYBlueTooth */,
+				C54BE64127DD9B4100165BDE /* Extension */,
+				C5C83AFE27DAF74C00D9E5BA /* Info.plist */,
+				C548456F27DE45FD00ADF856 /* JDYOpenLibray.bundle */,
+			);
+			path = JDYOpenLibray;
+			sourceTree = "<group>";
+		};
+		CF21005581582DF6A7032074 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				3018B3B58AB1ABE5B561B78C /* Pods-JDYOpenLibray.debug.xcconfig */,
+				D1B6BA2279348A36B5679E6C /* Pods-JDYOpenLibray.release.xcconfig */,
+			);
+			path = Pods;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXHeadersBuildPhase section */
+		C5C83AF527DAF74C00D9E5BA /* Headers */ = {
+			isa = PBXHeadersBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				B4AEC9882807FF9400E9D884 /* BlueToothManager.h in Headers */,
+				B4AEC98A2807FF9400E9D884 /* JDYBillPrintManager.h in Headers */,
+				C54BE64E27DDA0A300165BDE /* UIImage+JDY.h in Headers */,
+				B44A5AAF27F59A6A00F25B0F /* JDYSignUpManager.h in Headers */,
+				B44A5AB427F59A6A00F25B0F /* JDYLocation.h in Headers */,
+				C5C83AFF27DAF74C00D9E5BA /* JDYOpenLibray.h in Headers */,
+				C54BE64427DD9B4100165BDE /* UIColor+JDY.h in Headers */,
+				B4AEC9872807FF9400E9D884 /* BlueToothListController.h in Headers */,
+				C54BE64827DD9D2700165BDE /* JDYGradualButton.h in Headers */,
+				B44A5AB027F59A6A00F25B0F /* JDYSignUpViewController.h in Headers */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXHeadersBuildPhase section */
+
+/* Begin PBXNativeTarget section */
+		C5C83AF927DAF74C00D9E5BA /* JDYOpenLibray */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = C5C83B0227DAF74C00D9E5BA /* Build configuration list for PBXNativeTarget "JDYOpenLibray" */;
+			buildPhases = (
+				FB751EA683EE67755ADD16BD /* [CP] Check Pods Manifest.lock */,
+				C5C83AF527DAF74C00D9E5BA /* Headers */,
+				C5C83AF627DAF74C00D9E5BA /* Sources */,
+				C5C83AF727DAF74C00D9E5BA /* Frameworks */,
+				C5C83AF827DAF74C00D9E5BA /* Resources */,
+				957B3A05690C812EA5F63CE6 /* [CP] Copy Pods Resources */,
+				B44A5ABA27F5A3FB00F25B0F /* ShellScript */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = JDYOpenLibray;
+			productName = JDYOpenLibray;
+			productReference = C5C83AFA27DAF74C00D9E5BA /* JDYOpenLibray.framework */;
+			productType = "com.apple.product-type.framework";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		C5C83AF127DAF74C00D9E5BA /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastUpgradeCheck = 1160;
+				ORGANIZATIONNAME = com.jdy.map;
+				TargetAttributes = {
+					C5C83AF927DAF74C00D9E5BA = {
+						CreatedOnToolsVersion = 11.6;
+					};
+				};
+			};
+			buildConfigurationList = C5C83AF427DAF74C00D9E5BA /* Build configuration list for PBXProject "JDYOpenLibray" */;
+			compatibilityVersion = "Xcode 9.3";
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = C5C83AF027DAF74C00D9E5BA;
+			productRefGroup = C5C83AFB27DAF74C00D9E5BA /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				C5C83AF927DAF74C00D9E5BA /* JDYOpenLibray */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		C5C83AF827DAF74C00D9E5BA /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		957B3A05690C812EA5F63CE6 /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-JDYOpenLibray/Pods-JDYOpenLibray-resources-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Copy Pods Resources";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-JDYOpenLibray/Pods-JDYOpenLibray-resources-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-JDYOpenLibray/Pods-JDYOpenLibray-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		B44A5ABA27F5A3FB00F25B0F /* ShellScript */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+			);
+			outputFileListPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\nif [ \"${ACTION}\" = \"build\" ]\nthen\nINSTALL_DIR=${SRCROOT}/${PROJECT_NAME}_v${CURRENT_PROJECT_VERSION}/${PROJECT_NAME}.framework\n\nDEVICE_DIR=${BUILD_ROOT}/${CONFIGURATION}-iphoneos/${PROJECT_NAME}.framework\n\nSIMULATOR_DIR=${BUILD_ROOT}/${CONFIGURATION}-iphonesimulator/${PROJECT_NAME}.framework\n\n\nif [ -d \"${INSTALL_DIR}\" ]\nthen\nrm -rf \"${INSTALL_DIR}\"\nfi\n\nmkdir -p \"${INSTALL_DIR}\"\n\ncp -R \"${DEVICE_DIR}/\" \"${INSTALL_DIR}/\"\n#ditto \"${DEVICE_DIR}/Headers\" \"${INSTALL_DIR}/Headers\"\n\nlipo -create \"${DEVICE_DIR}/${PROJECT_NAME}\" \"${SIMULATOR_DIR}/${PROJECT_NAME}\" -output \"${INSTALL_DIR}/${PROJECT_NAME}\"\n\n#open \"${DEVICE_DIR}\"\n#open \"${SRCROOT}/Products\"\nfi\n";
+		};
+		FB751EA683EE67755ADD16BD /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-JDYOpenLibray-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		C5C83AF627DAF74C00D9E5BA /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				B44A5AB127F59A6A00F25B0F /* JDYLocation.m in Sources */,
+				B4AEC98B2807FF9400E9D884 /* BlueToothManager.m in Sources */,
+				B44A5AB227F59A6A00F25B0F /* JDYSignUpManager.m in Sources */,
+				B4AEC9892807FF9400E9D884 /* BlueToothListController.m in Sources */,
+				B44A5AB327F59A6A00F25B0F /* JDYSignUpViewController.m in Sources */,
+				B4AEC9862807FF9400E9D884 /* JDYBillPrintManager.m in Sources */,
+				C54BE64F27DDA0A300165BDE /* UIImage+JDY.m in Sources */,
+				C54BE64527DD9B4100165BDE /* UIColor+JDY.m in Sources */,
+				C54BE64927DD9D2700165BDE /* JDYGradualButton.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin XCBuildConfiguration section */
+		C5C83B0027DAF74C00D9E5BA /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				CURRENT_PROJECT_VERSION = 1;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
+				MACH_O_TYPE = staticlib;
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Debug;
+		};
+		C5C83B0127DAF74C00D9E5BA /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				CURRENT_PROJECT_VERSION = 1;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
+				MACH_O_TYPE = staticlib;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				MTL_FAST_MATH = YES;
+				SDKROOT = iphoneos;
+				VALIDATE_PRODUCT = YES;
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Release;
+		};
+		C5C83B0327DAF74C00D9E5BA /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 3018B3B58AB1ABE5B561B78C /* Pods-JDYOpenLibray.debug.xcconfig */;
+			buildSettings = {
+				CLANG_ENABLE_MODULES = NO;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1.0.3;
+				DEFINES_MODULE = YES;
+				DEVELOPMENT_TEAM = YZKWAV8875;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				INFOPLIST_FILE = JDYOpenLibray/Info.plist;
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				ONLY_ACTIVE_ARCH = NO;
+				PRODUCT_BUNDLE_IDENTIFIER = JDY.JDYOpenLibray;
+				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
+				SKIP_INSTALL = YES;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		C5C83B0427DAF74C00D9E5BA /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = D1B6BA2279348A36B5679E6C /* Pods-JDYOpenLibray.release.xcconfig */;
+			buildSettings = {
+				CLANG_ENABLE_MODULES = NO;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1.0.3;
+				DEFINES_MODULE = YES;
+				DEVELOPMENT_TEAM = YZKWAV8875;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				INFOPLIST_FILE = JDYOpenLibray/Info.plist;
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				ONLY_ACTIVE_ARCH = NO;
+				PRODUCT_BUNDLE_IDENTIFIER = JDY.JDYOpenLibray;
+				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
+				SKIP_INSTALL = YES;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		C5C83AF427DAF74C00D9E5BA /* Build configuration list for PBXProject "JDYOpenLibray" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				C5C83B0027DAF74C00D9E5BA /* Debug */,
+				C5C83B0127DAF74C00D9E5BA /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		C5C83B0227DAF74C00D9E5BA /* Build configuration list for PBXNativeTarget "JDYOpenLibray" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				C5C83B0327DAF74C00D9E5BA /* Debug */,
+				C5C83B0427DAF74C00D9E5BA /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = C5C83AF127DAF74C00D9E5BA /* Project object */;
+}

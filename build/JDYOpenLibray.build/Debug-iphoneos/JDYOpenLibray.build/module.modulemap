@@ -1,0 +1,6 @@
+framework module JDYOpenLibray {
+  umbrella header "JDYOpenLibray.h"
+
+  export *
+  module * { export * }
+}
