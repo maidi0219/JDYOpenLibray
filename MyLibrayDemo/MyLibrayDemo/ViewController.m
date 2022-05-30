@@ -7,11 +7,11 @@
 //
 
 #import "ViewController.h"
-#import <JDYOpenLibray/JDYOpenLibray.h>
+//#import <JDYOpenLibray/JDYOpenLibray.h>
 
 
 //#import <JDYPrinter/JDYPrinter.h>
-//#import "JDYBillPrintManager.h"
+#import "JDYBillPrintManager.h"
 #define HISUNPLUGIN_BUNDLE_NAME @"JDYOpenLibrayBundle.bundle"
 
 #define HISUNPLUGIN_BUNDLE_PATH [[[NSBundle mainBundle] resourcePath] stringByAppendingPathComponent: HISUNPLUGIN_BUNDLE_NAME]
