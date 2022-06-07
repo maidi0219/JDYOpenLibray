@@ -9,6 +9,8 @@
 #import "JDYBillPrintManager.h"
 #import "BlueToothListController.h"
 #import "BlueToothManager.h"
+#import "NetWorkPrintSettingViewController.h"
+#import "NetworkPrintManager.h"
 
 #define LocalBlueToothListKey @"LocalBlueToothListKey"
 
@@ -26,51 +28,92 @@ typedef NS_ENUM(NSInteger, JDYPrintErrorCodeNum) {
               printDeviceId:(NSString*)printDeviceId
              selectCallBack:(void(^)(JDYBlueToothModel *blueToothModel))selectCallBack
              cancelCallBack:(void(^)(void))cancelCallBack{
-    BlueToothListController *periList = [[BlueToothListController alloc]init];
-    UINavigationController *nav = [[UINavigationController alloc]initWithRootViewController:periList];
-    [[[UIApplication sharedApplication] keyWindow].rootViewController presentViewController:nav animated:YES completion:nil];
-    periList.connectFinishBlock = ^(CBPeripheral *perpheral){
-        JDYBlueToothModel *model =[[JDYBlueToothModel alloc]init];
-        model.address =perpheral.identifier.UUIDString;
-        model.name =perpheral.name;
-        model.printDeviceId = printDeviceId;
-        model.type = type;
-        if (selectCallBack) {
-            selectCallBack(model);
-        }
+    if ([type isEqualToString:@"network"]) {//增加网络打印入口
         
-        NSMutableDictionary *dic = [[NSMutableDictionary alloc] init];
-        [dic setValue:model.address forKey:@"address"];
-        [dic setValue:model.name forKey:@"name"];
-        [dic setValue:model.printDeviceId forKey:@"printDeviceId"];
-        [dic setValue:model.type forKey:@"type"];
-        NSUserDefaults *userDefaults = [NSUserDefaults standardUserDefaults];
-        NSMutableArray *list = [[userDefaults objectForKey:LocalBlueToothListKey] mutableCopy];
-        if (!list) {
-            list =[[NSMutableArray alloc]init];
-        }
-        BOOL isExt = NO;
-        for (int i =0; i<list.count; i++) {
-            NSDictionary *ldic = list[i];
-            NSString *printDeviceId =[ldic objectForKey:@"printDeviceId"];
+        JDYBlueToothModel *defaultModel = nil;
+        NSArray *list = [self localPrintList];
+        for (JDYBlueToothModel *model in list) {
             if ([printDeviceId isEqualToString:model.printDeviceId]) {
-                [list replaceObjectAtIndex:i withObject:dic];
-                isExt = YES;
+                defaultModel = model;
+                break;
             }
         }
-        if (!isExt) {
-            [list addObject:dic];
-        }
-        [userDefaults setObject:list forKey:LocalBlueToothListKey];
-        [userDefaults synchronize];
-        NSLog(@"%@", list);
-    };
-    periList.connectCancelBlock = ^{
-        if (cancelCallBack) {
-            cancelCallBack();
-        }
-    };
+        NetWorkPrintSettingViewController *netVc = [[NetWorkPrintSettingViewController alloc]init];
+        [netVc setContViewWithIp:defaultModel.networkIp port:defaultModel.networkPort];
+        UINavigationController *nav = [[UINavigationController alloc]initWithRootViewController:netVc];
+        [[[UIApplication sharedApplication] keyWindow].rootViewController presentViewController:nav animated:YES completion:nil];
+        netVc.connectFinishBlock = ^(NSString * _Nonnull ipStr, NSString * _Nonnull port) {
+            JDYBlueToothModel *model =[[JDYBlueToothModel alloc]init];
+            model.address =ipStr;
+            model.name =ipStr;
+            model.networkIp =ipStr;
+            model.networkPort = port;
+            model.printDeviceId = printDeviceId;
+            model.type = type;
+            if (selectCallBack) {
+                selectCallBack(model);
+            }
+            [self saveInfoWithModel:model];
+        };
+        netVc.connectCancelBlock = ^{
+            if (cancelCallBack) {
+                cancelCallBack();
+            }
+        };
+    }else{//蓝牙
+        BlueToothListController *periList = [[BlueToothListController alloc]init];
+        UINavigationController *nav = [[UINavigationController alloc]initWithRootViewController:periList];
+        [[[UIApplication sharedApplication] keyWindow].rootViewController presentViewController:nav animated:YES completion:nil];
+        periList.connectFinishBlock = ^(CBPeripheral *perpheral){
+            JDYBlueToothModel *model =[[JDYBlueToothModel alloc]init];
+            model.address =perpheral.identifier.UUIDString;
+            model.name =perpheral.name;
+            model.printDeviceId = printDeviceId;
+            model.type = type;
+            if (selectCallBack) {
+                selectCallBack(model);
+            }
+            
+            [self saveInfoWithModel:model];
+        };
+        periList.connectCancelBlock = ^{
+            if (cancelCallBack) {
+                cancelCallBack();
+            }
+        };
+    }
+   
 }
++(void)saveInfoWithModel:(JDYBlueToothModel*)model{
+    NSMutableDictionary *dic = [[NSMutableDictionary alloc] init];
+    [dic setValue:model.address forKey:@"address"];
+    [dic setValue:model.name forKey:@"name"];
+    [dic setValue:model.printDeviceId forKey:@"printDeviceId"];
+    [dic setValue:model.type forKey:@"type"];
+    [dic setValue:model.networkPort forKey:@"port"];
+    [dic setValue:model.networkIp forKey:@"networkIp"];
+    NSUserDefaults *userDefaults = [NSUserDefaults standardUserDefaults];
+    NSMutableArray *list = [[userDefaults objectForKey:LocalBlueToothListKey] mutableCopy];
+    if (!list) {
+        list =[[NSMutableArray alloc]init];
+    }
+    BOOL isExt = NO;
+    for (int i =0; i<list.count; i++) {
+        NSDictionary *ldic = list[i];
+        NSString *printDeviceId =[ldic objectForKey:@"printDeviceId"];
+        if ([printDeviceId isEqualToString:model.printDeviceId]) {
+            [list replaceObjectAtIndex:i withObject:dic];
+            isExt = YES;
+        }
+    }
+    if (!isExt) {
+        [list addObject:dic];
+    }
+    [userDefaults setObject:list forKey:LocalBlueToothListKey];
+    [userDefaults synchronize];
+    NSLog(@"%@", list);
+}
+
 +(NSArray*)localPrintList{
     NSUserDefaults *userDefaults = [NSUserDefaults standardUserDefaults];
     NSArray *list = [userDefaults objectForKey:LocalBlueToothListKey];
@@ -81,8 +124,9 @@ typedef NS_ENUM(NSInteger, JDYPrintErrorCodeNum) {
         model.name =[dic objectForKey:@"name"];
         model.printDeviceId = [dic objectForKey:@"printDeviceId"];
         model.type = [dic objectForKey:@"type"];
+        model.networkIp =[dic objectForKey:@"networkIp"];
+        model.networkPort =[dic objectForKey:@"port"];
         [tprintList addObject:model];
-        
     }
     return [tprintList copy];
 }
@@ -185,7 +229,7 @@ typedef NS_ENUM(NSInteger, JDYPrintErrorCodeNum) {
                   failedCallBack:(void(^)(NSString * traceId, NSString * printDeviceId,int errCode, NSString * errMsg))failedCallBack{
     NSDictionary *dic=  [self dictionaryWithJsonString:dataStr];
     NSDictionary *dataDic =[dic objectForKey:@"data"];
-    NSString *printDeviceId = [dataDic objectForKey:@"printDeviceId"];
+    NSString *printDeviceId = [dataDic objectForKey:@"printDeviceId"];//printDeviceId可以为空，直接由外面传printer
     NSString *traceId = [dataDic objectForKey:@"traceId"];
     NSArray *printInfoDics= [dataDic objectForKey:@"printInfo"];
     if (!dataDic || !printDeviceId || !traceId || !printInfoDics) {
@@ -246,6 +290,10 @@ typedef NS_ENUM(NSInteger, JDYPrintErrorCodeNum) {
                     //全部printInfoDics打印完成回调
                     if (compeleteBlcok) {
                         compeleteBlcok(0,nil);
+                    }
+                    if ([model.type isEqualToString:@"network"]) {
+                        //网络打印机打印完成之后断开socket连接
+                        [[NetworkPrintManager sharedInstance]socketDisconnectSocket];
                     }
                 }
             }
@@ -331,17 +379,32 @@ typedef NS_ENUM(NSInteger, JDYPrintErrorCodeNum) {
 }
 
 +(void)printDataWithData:(NSData*)data model:(JDYBlueToothModel*)model block:(void(^)(NSString *errMsg))block{
-    [[BlueToothManager sharedInstance]writeData:data peripheralName:model.name uuid:model.address writeDataBlock:^(NSString *errMsg) {
-        if (errMsg) {
-            if (block) {
-                block(errMsg);
+    if ([model.type isEqualToString:@"network"]) {
+        [[NetworkPrintManager sharedInstance]writeData:data ip:model.networkIp port:model.networkPort writeDataBlock:^(NSString *errMsg) {
+            if (errMsg) {
+                if (block) {
+                    block(errMsg);
+                }
+                return;
             }
-            return;
-        }
-        if (block) {
-            block(nil);
-        }
-    }];
+            if (block) {
+                block(nil);
+            }
+        }];
+    }else{
+        [[BlueToothManager sharedInstance]writeData:data peripheralName:model.name uuid:model.address writeDataBlock:^(NSString *errMsg) {
+            if (errMsg) {
+                if (block) {
+                    block(errMsg);
+                }
+                return;
+            }
+            if (block) {
+                block(nil);
+            }
+        }];
+    }
+
 }
 
 

@@ -13,12 +13,18 @@
 		B44A5AB227F59A6A00F25B0F /* JDYSignUpManager.m in Sources */ = {isa = PBXBuildFile; fileRef = B44A5AAC27F59A6A00F25B0F /* JDYSignUpManager.m */; };
 		B44A5AB327F59A6A00F25B0F /* JDYSignUpViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B44A5AAD27F59A6A00F25B0F /* JDYSignUpViewController.m */; };
 		B44A5AB427F59A6A00F25B0F /* JDYLocation.h in Headers */ = {isa = PBXBuildFile; fileRef = B44A5AAE27F59A6A00F25B0F /* JDYLocation.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		B4AEC9862807FF9400E9D884 /* JDYBillPrintManager.m in Sources */ = {isa = PBXBuildFile; fileRef = B4AEC9802807FF9400E9D884 /* JDYBillPrintManager.m */; };
-		B4AEC9872807FF9400E9D884 /* BlueToothListController.h in Headers */ = {isa = PBXBuildFile; fileRef = B4AEC9812807FF9400E9D884 /* BlueToothListController.h */; };
-		B4AEC9882807FF9400E9D884 /* BlueToothManager.h in Headers */ = {isa = PBXBuildFile; fileRef = B4AEC9822807FF9400E9D884 /* BlueToothManager.h */; };
-		B4AEC9892807FF9400E9D884 /* BlueToothListController.m in Sources */ = {isa = PBXBuildFile; fileRef = B4AEC9832807FF9400E9D884 /* BlueToothListController.m */; };
-		B4AEC98A2807FF9400E9D884 /* JDYBillPrintManager.h in Headers */ = {isa = PBXBuildFile; fileRef = B4AEC9842807FF9400E9D884 /* JDYBillPrintManager.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		B4AEC98B2807FF9400E9D884 /* BlueToothManager.m in Sources */ = {isa = PBXBuildFile; fileRef = B4AEC9852807FF9400E9D884 /* BlueToothManager.m */; };
+		B4A5CC02284EE029007F3DC2 /* JDYBillPrintManager.m in Sources */ = {isa = PBXBuildFile; fileRef = B4A5CBF2284EE028007F3DC2 /* JDYBillPrintManager.m */; };
+		B4A5CC03284EE029007F3DC2 /* NetWorkPrintSettingViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B4A5CBF4284EE028007F3DC2 /* NetWorkPrintSettingViewController.m */; };
+		B4A5CC04284EE029007F3DC2 /* NetworkPrintManager.h in Headers */ = {isa = PBXBuildFile; fileRef = B4A5CBF5284EE028007F3DC2 /* NetworkPrintManager.h */; };
+		B4A5CC05284EE029007F3DC2 /* AsyncSocket.h in Headers */ = {isa = PBXBuildFile; fileRef = B4A5CBF7284EE028007F3DC2 /* AsyncSocket.h */; };
+		B4A5CC06284EE029007F3DC2 /* AsyncSocket.m in Sources */ = {isa = PBXBuildFile; fileRef = B4A5CBF8284EE028007F3DC2 /* AsyncSocket.m */; };
+		B4A5CC07284EE029007F3DC2 /* NetWorkPrintSettingViewController.h in Headers */ = {isa = PBXBuildFile; fileRef = B4A5CBF9284EE028007F3DC2 /* NetWorkPrintSettingViewController.h */; };
+		B4A5CC08284EE029007F3DC2 /* NetworkPrintManager.m in Sources */ = {isa = PBXBuildFile; fileRef = B4A5CBFA284EE028007F3DC2 /* NetworkPrintManager.m */; };
+		B4A5CC0A284EE029007F3DC2 /* JDYBillPrintManager.h in Headers */ = {isa = PBXBuildFile; fileRef = B4A5CBFC284EE028007F3DC2 /* JDYBillPrintManager.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		B4A5CC0B284EE029007F3DC2 /* BlueToothListController.h in Headers */ = {isa = PBXBuildFile; fileRef = B4A5CBFE284EE028007F3DC2 /* BlueToothListController.h */; };
+		B4A5CC0C284EE029007F3DC2 /* BlueToothManager.h in Headers */ = {isa = PBXBuildFile; fileRef = B4A5CBFF284EE028007F3DC2 /* BlueToothManager.h */; };
+		B4A5CC0D284EE029007F3DC2 /* BlueToothListController.m in Sources */ = {isa = PBXBuildFile; fileRef = B4A5CC00284EE028007F3DC2 /* BlueToothListController.m */; };
+		B4A5CC0E284EE029007F3DC2 /* BlueToothManager.m in Sources */ = {isa = PBXBuildFile; fileRef = B4A5CC01284EE028007F3DC2 /* BlueToothManager.m */; };
 		C54BE64427DD9B4100165BDE /* UIColor+JDY.h in Headers */ = {isa = PBXBuildFile; fileRef = C54BE64227DD9B4100165BDE /* UIColor+JDY.h */; };
 		C54BE64527DD9B4100165BDE /* UIColor+JDY.m in Sources */ = {isa = PBXBuildFile; fileRef = C54BE64327DD9B4100165BDE /* UIColor+JDY.m */; };
 		C54BE64827DD9D2700165BDE /* JDYGradualButton.h in Headers */ = {isa = PBXBuildFile; fileRef = C54BE64627DD9D2700165BDE /* JDYGradualButton.h */; };
@@ -38,12 +44,18 @@
 		B44A5AAC27F59A6A00F25B0F /* JDYSignUpManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JDYSignUpManager.m; sourceTree = "<group>"; };
 		B44A5AAD27F59A6A00F25B0F /* JDYSignUpViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JDYSignUpViewController.m; sourceTree = "<group>"; };
 		B44A5AAE27F59A6A00F25B0F /* JDYLocation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JDYLocation.h; sourceTree = "<group>"; };
-		B4AEC9802807FF9400E9D884 /* JDYBillPrintManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JDYBillPrintManager.m; sourceTree = "<group>"; };
-		B4AEC9812807FF9400E9D884 /* BlueToothListController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BlueToothListController.h; sourceTree = "<group>"; };
-		B4AEC9822807FF9400E9D884 /* BlueToothManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BlueToothManager.h; sourceTree = "<group>"; };
-		B4AEC9832807FF9400E9D884 /* BlueToothListController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BlueToothListController.m; sourceTree = "<group>"; };
-		B4AEC9842807FF9400E9D884 /* JDYBillPrintManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JDYBillPrintManager.h; sourceTree = "<group>"; };
-		B4AEC9852807FF9400E9D884 /* BlueToothManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BlueToothManager.m; sourceTree = "<group>"; };
+		B4A5CBF2284EE028007F3DC2 /* JDYBillPrintManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JDYBillPrintManager.m; sourceTree = "<group>"; };
+		B4A5CBF4284EE028007F3DC2 /* NetWorkPrintSettingViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NetWorkPrintSettingViewController.m; sourceTree = "<group>"; };
+		B4A5CBF5284EE028007F3DC2 /* NetworkPrintManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NetworkPrintManager.h; sourceTree = "<group>"; };
+		B4A5CBF7284EE028007F3DC2 /* AsyncSocket.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AsyncSocket.h; sourceTree = "<group>"; };
+		B4A5CBF8284EE028007F3DC2 /* AsyncSocket.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AsyncSocket.m; sourceTree = "<group>"; };
+		B4A5CBF9284EE028007F3DC2 /* NetWorkPrintSettingViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NetWorkPrintSettingViewController.h; sourceTree = "<group>"; };
+		B4A5CBFA284EE028007F3DC2 /* NetworkPrintManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NetworkPrintManager.m; sourceTree = "<group>"; };
+		B4A5CBFC284EE028007F3DC2 /* JDYBillPrintManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JDYBillPrintManager.h; sourceTree = "<group>"; };
+		B4A5CBFE284EE028007F3DC2 /* BlueToothListController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BlueToothListController.h; sourceTree = "<group>"; };
+		B4A5CBFF284EE028007F3DC2 /* BlueToothManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BlueToothManager.h; sourceTree = "<group>"; };
+		B4A5CC00284EE028007F3DC2 /* BlueToothListController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BlueToothListController.m; sourceTree = "<group>"; };
+		B4A5CC01284EE028007F3DC2 /* BlueToothManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BlueToothManager.m; sourceTree = "<group>"; };
 		C548456F27DE45FD00ADF856 /* JDYOpenLibray.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = JDYOpenLibray.bundle; sourceTree = "<group>"; };
 		C54BE64227DD9B4100165BDE /* UIColor+JDY.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIColor+JDY.h"; sourceTree = "<group>"; };
 		C54BE64327DD9B4100165BDE /* UIColor+JDY.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIColor+JDY.m"; sourceTree = "<group>"; };
@@ -90,17 +102,47 @@
 			path = JDYSignUp;
 			sourceTree = "<group>";
 		};
-		B4AEC97F2807FF9400E9D884 /* JDYBlueTooth */ = {
+		B4A5CBF1284EE028007F3DC2 /* JDYBlueTooth */ = {
 			isa = PBXGroup;
 			children = (
-				B4AEC9842807FF9400E9D884 /* JDYBillPrintManager.h */,
-				B4AEC9802807FF9400E9D884 /* JDYBillPrintManager.m */,
-				B4AEC9812807FF9400E9D884 /* BlueToothListController.h */,
-				B4AEC9832807FF9400E9D884 /* BlueToothListController.m */,
-				B4AEC9822807FF9400E9D884 /* BlueToothManager.h */,
-				B4AEC9852807FF9400E9D884 /* BlueToothManager.m */,
+				B4A5CBFC284EE028007F3DC2 /* JDYBillPrintManager.h */,
+				B4A5CBF2284EE028007F3DC2 /* JDYBillPrintManager.m */,
+				B4A5CBF3284EE028007F3DC2 /* NetworkPrint */,
+				B4A5CBFD284EE028007F3DC2 /* BlueToothPrint */,
 			);
 			path = JDYBlueTooth;
+			sourceTree = "<group>";
+		};
+		B4A5CBF3284EE028007F3DC2 /* NetworkPrint */ = {
+			isa = PBXGroup;
+			children = (
+				B4A5CBF6284EE028007F3DC2 /* AsyncSocket */,
+				B4A5CBF5284EE028007F3DC2 /* NetworkPrintManager.h */,
+				B4A5CBFA284EE028007F3DC2 /* NetworkPrintManager.m */,
+				B4A5CBF9284EE028007F3DC2 /* NetWorkPrintSettingViewController.h */,
+				B4A5CBF4284EE028007F3DC2 /* NetWorkPrintSettingViewController.m */,
+			);
+			path = NetworkPrint;
+			sourceTree = "<group>";
+		};
+		B4A5CBF6284EE028007F3DC2 /* AsyncSocket */ = {
+			isa = PBXGroup;
+			children = (
+				B4A5CBF7284EE028007F3DC2 /* AsyncSocket.h */,
+				B4A5CBF8284EE028007F3DC2 /* AsyncSocket.m */,
+			);
+			path = AsyncSocket;
+			sourceTree = "<group>";
+		};
+		B4A5CBFD284EE028007F3DC2 /* BlueToothPrint */ = {
+			isa = PBXGroup;
+			children = (
+				B4A5CBFE284EE028007F3DC2 /* BlueToothListController.h */,
+				B4A5CBFF284EE028007F3DC2 /* BlueToothManager.h */,
+				B4A5CC00284EE028007F3DC2 /* BlueToothListController.m */,
+				B4A5CC01284EE028007F3DC2 /* BlueToothManager.m */,
+			);
+			path = BlueToothPrint;
 			sourceTree = "<group>";
 		};
 		C54BE64127DD9B4100165BDE /* Extension */ = {
@@ -138,8 +180,8 @@
 			isa = PBXGroup;
 			children = (
 				C5C83AFD27DAF74C00D9E5BA /* JDYOpenLibray.h */,
+				B4A5CBF1284EE028007F3DC2 /* JDYBlueTooth */,
 				B44A5AA827F59A6A00F25B0F /* JDYSignUp */,
-				B4AEC97F2807FF9400E9D884 /* JDYBlueTooth */,
 				C54BE64127DD9B4100165BDE /* Extension */,
 				C5C83AFE27DAF74C00D9E5BA /* Info.plist */,
 				C548456F27DE45FD00ADF856 /* JDYOpenLibray.bundle */,
@@ -163,14 +205,17 @@
 			isa = PBXHeadersBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				B4AEC9882807FF9400E9D884 /* BlueToothManager.h in Headers */,
-				B4AEC98A2807FF9400E9D884 /* JDYBillPrintManager.h in Headers */,
 				C54BE64E27DDA0A300165BDE /* UIImage+JDY.h in Headers */,
+				B4A5CC0B284EE029007F3DC2 /* BlueToothListController.h in Headers */,
+				B4A5CC0A284EE029007F3DC2 /* JDYBillPrintManager.h in Headers */,
 				B44A5AAF27F59A6A00F25B0F /* JDYSignUpManager.h in Headers */,
 				B44A5AB427F59A6A00F25B0F /* JDYLocation.h in Headers */,
 				C5C83AFF27DAF74C00D9E5BA /* JDYOpenLibray.h in Headers */,
 				C54BE64427DD9B4100165BDE /* UIColor+JDY.h in Headers */,
-				B4AEC9872807FF9400E9D884 /* BlueToothListController.h in Headers */,
+				B4A5CC07284EE029007F3DC2 /* NetWorkPrintSettingViewController.h in Headers */,
+				B4A5CC04284EE029007F3DC2 /* NetworkPrintManager.h in Headers */,
+				B4A5CC0C284EE029007F3DC2 /* BlueToothManager.h in Headers */,
+				B4A5CC05284EE029007F3DC2 /* AsyncSocket.h in Headers */,
 				C54BE64827DD9D2700165BDE /* JDYGradualButton.h in Headers */,
 				B44A5AB027F59A6A00F25B0F /* JDYSignUpViewController.h in Headers */,
 			);
@@ -307,13 +352,16 @@
 			buildActionMask = 2147483647;
 			files = (
 				B44A5AB127F59A6A00F25B0F /* JDYLocation.m in Sources */,
-				B4AEC98B2807FF9400E9D884 /* BlueToothManager.m in Sources */,
 				B44A5AB227F59A6A00F25B0F /* JDYSignUpManager.m in Sources */,
-				B4AEC9892807FF9400E9D884 /* BlueToothListController.m in Sources */,
+				B4A5CC08284EE029007F3DC2 /* NetworkPrintManager.m in Sources */,
+				B4A5CC03284EE029007F3DC2 /* NetWorkPrintSettingViewController.m in Sources */,
+				B4A5CC06284EE029007F3DC2 /* AsyncSocket.m in Sources */,
 				B44A5AB327F59A6A00F25B0F /* JDYSignUpViewController.m in Sources */,
-				B4AEC9862807FF9400E9D884 /* JDYBillPrintManager.m in Sources */,
+				B4A5CC0D284EE029007F3DC2 /* BlueToothListController.m in Sources */,
+				B4A5CC02284EE029007F3DC2 /* JDYBillPrintManager.m in Sources */,
 				C54BE64F27DDA0A300165BDE /* UIImage+JDY.m in Sources */,
 				C54BE64527DD9B4100165BDE /* UIColor+JDY.m in Sources */,
+				B4A5CC0E284EE029007F3DC2 /* BlueToothManager.m in Sources */,
 				C54BE64927DD9D2700165BDE /* JDYGradualButton.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -445,7 +493,7 @@
 			buildSettings = {
 				CLANG_ENABLE_MODULES = NO;
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 1.0.3;
+				CURRENT_PROJECT_VERSION = 1.0.4;
 				DEFINES_MODULE = YES;
 				DEVELOPMENT_TEAM = YZKWAV8875;
 				DYLIB_COMPATIBILITY_VERSION = 1;
@@ -473,7 +521,7 @@
 			buildSettings = {
 				CLANG_ENABLE_MODULES = NO;
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 1.0.3;
+				CURRENT_PROJECT_VERSION = 1.0.4;
 				DEFINES_MODULE = YES;
 				DEVELOPMENT_TEAM = YZKWAV8875;
 				DYLIB_COMPATIBILITY_VERSION = 1;

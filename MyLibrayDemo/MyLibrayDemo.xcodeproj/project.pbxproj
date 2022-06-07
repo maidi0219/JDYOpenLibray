@@ -7,9 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		B43C728A284496A3001543FE /* JDYBillPrintManager.m in Sources */ = {isa = PBXBuildFile; fileRef = B43C7284284496A3001543FE /* JDYBillPrintManager.m */; };
-		B43C728B284496A3001543FE /* BlueToothListController.m in Sources */ = {isa = PBXBuildFile; fileRef = B43C7287284496A3001543FE /* BlueToothListController.m */; };
-		B43C728C284496A3001543FE /* BlueToothManager.m in Sources */ = {isa = PBXBuildFile; fileRef = B43C7289284496A3001543FE /* BlueToothManager.m */; };
+		B4A5CC6A284EF930007F3DC2 /* JDYOpenLibray.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B4A5CC68284EF930007F3DC2 /* JDYOpenLibray.framework */; };
+		B4A5CC6B284EF930007F3DC2 /* JDYOpenLibray.bundle in Resources */ = {isa = PBXBuildFile; fileRef = B4A5CC69284EF930007F3DC2 /* JDYOpenLibray.bundle */; };
 		C5C83B1B27DB007500D9E5BA /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = C5C83B1A27DB007500D9E5BA /* AppDelegate.m */; };
 		C5C83B1E27DB007500D9E5BA /* SceneDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = C5C83B1D27DB007500D9E5BA /* SceneDelegate.m */; };
 		C5C83B2127DB007500D9E5BA /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C5C83B2027DB007500D9E5BA /* ViewController.m */; };
@@ -22,12 +21,8 @@
 /* Begin PBXFileReference section */
 		1C089C7B66987EF3FE948F63 /* Pods-MyLibrayDemo.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MyLibrayDemo.release.xcconfig"; path = "Target Support Files/Pods-MyLibrayDemo/Pods-MyLibrayDemo.release.xcconfig"; sourceTree = "<group>"; };
 		22D2E1AED10C34C5B2672F41 /* Pods-MyLibrayDemo.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MyLibrayDemo.debug.xcconfig"; path = "Target Support Files/Pods-MyLibrayDemo/Pods-MyLibrayDemo.debug.xcconfig"; sourceTree = "<group>"; };
-		B43C7284284496A3001543FE /* JDYBillPrintManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JDYBillPrintManager.m; sourceTree = "<group>"; };
-		B43C7285284496A3001543FE /* BlueToothListController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BlueToothListController.h; sourceTree = "<group>"; };
-		B43C7286284496A3001543FE /* BlueToothManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BlueToothManager.h; sourceTree = "<group>"; };
-		B43C7287284496A3001543FE /* BlueToothListController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BlueToothListController.m; sourceTree = "<group>"; };
-		B43C7288284496A3001543FE /* JDYBillPrintManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JDYBillPrintManager.h; sourceTree = "<group>"; };
-		B43C7289284496A3001543FE /* BlueToothManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BlueToothManager.m; sourceTree = "<group>"; };
+		B4A5CC68284EF930007F3DC2 /* JDYOpenLibray.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = JDYOpenLibray.framework; sourceTree = "<group>"; };
+		B4A5CC69284EF930007F3DC2 /* JDYOpenLibray.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = JDYOpenLibray.bundle; sourceTree = "<group>"; };
 		C5C83B1627DB007500D9E5BA /* MyLibrayDemo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MyLibrayDemo.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		C5C83B1927DB007500D9E5BA /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		C5C83B1A27DB007500D9E5BA /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
@@ -47,6 +42,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				B4A5CC6A284EF930007F3DC2 /* JDYOpenLibray.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -62,18 +58,14 @@
 			path = Pods;
 			sourceTree = "<group>";
 		};
-		B43C7283284496A3001543FE /* JDYBlueTooth */ = {
+		B4A5CC67284EF930007F3DC2 /* JDYOpenLibray_v1.0.4 */ = {
 			isa = PBXGroup;
 			children = (
-				B43C7284284496A3001543FE /* JDYBillPrintManager.m */,
-				B43C7285284496A3001543FE /* BlueToothListController.h */,
-				B43C7286284496A3001543FE /* BlueToothManager.h */,
-				B43C7287284496A3001543FE /* BlueToothListController.m */,
-				B43C7288284496A3001543FE /* JDYBillPrintManager.h */,
-				B43C7289284496A3001543FE /* BlueToothManager.m */,
+				B4A5CC68284EF930007F3DC2 /* JDYOpenLibray.framework */,
+				B4A5CC69284EF930007F3DC2 /* JDYOpenLibray.bundle */,
 			);
-			name = JDYBlueTooth;
-			path = ../../JDYOpenLibray/JDYBlueTooth;
+			name = JDYOpenLibray_v1.0.4;
+			path = ../../JDYOpenLibray_v1.0.4;
 			sourceTree = "<group>";
 		};
 		C5C83B0D27DB007500D9E5BA = {
@@ -97,13 +89,13 @@
 		C5C83B1827DB007500D9E5BA /* MyLibrayDemo */ = {
 			isa = PBXGroup;
 			children = (
+				B4A5CC67284EF930007F3DC2 /* JDYOpenLibray_v1.0.4 */,
 				C5C83B1927DB007500D9E5BA /* AppDelegate.h */,
 				C5C83B1A27DB007500D9E5BA /* AppDelegate.m */,
 				C5C83B1C27DB007500D9E5BA /* SceneDelegate.h */,
 				C5C83B1D27DB007500D9E5BA /* SceneDelegate.m */,
 				C5C83B1F27DB007500D9E5BA /* ViewController.h */,
 				C5C83B2027DB007500D9E5BA /* ViewController.m */,
-				B43C7283284496A3001543FE /* JDYBlueTooth */,
 				C5C83B2227DB007500D9E5BA /* Main.storyboard */,
 				C5C83B2527DB007D00D9E5BA /* Assets.xcassets */,
 				C5C83B2727DB007D00D9E5BA /* LaunchScreen.storyboard */,
@@ -179,6 +171,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				B4A5CC6B284EF930007F3DC2 /* JDYOpenLibray.bundle in Resources */,
 				C5C83B2927DB007D00D9E5BA /* LaunchScreen.storyboard in Resources */,
 				C5C83B2627DB007D00D9E5BA /* Assets.xcassets in Resources */,
 				C5C83B2427DB007500D9E5BA /* Main.storyboard in Resources */,
@@ -235,12 +228,9 @@
 			buildActionMask = 2147483647;
 			files = (
 				C5C83B2127DB007500D9E5BA /* ViewController.m in Sources */,
-				B43C728C284496A3001543FE /* BlueToothManager.m in Sources */,
 				C5C83B1B27DB007500D9E5BA /* AppDelegate.m in Sources */,
 				C5C83B2C27DB007D00D9E5BA /* main.m in Sources */,
 				C5C83B1E27DB007500D9E5BA /* SceneDelegate.m in Sources */,
-				B43C728B284496A3001543FE /* BlueToothListController.m in Sources */,
-				B43C728A284496A3001543FE /* JDYBillPrintManager.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -398,6 +388,7 @@
 					"$(PROJECT_DIR)/MyLibrayDemo/JDYOpenLibray_v1.0.2",
 					"$(PROJECT_DIR)/MyLibrayDemo/JDYOpenLibray_v1.0.3",
 					"$(PROJECT_DIR)/JDYOpenLibray_v1.0.3",
+					"$(PROJECT_DIR)/MyLibrayDemo/JDYOpenLibray_v1.0.4",
 				);
 				INFOPLIST_FILE = MyLibrayDemo/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
@@ -433,6 +424,7 @@
 					"$(PROJECT_DIR)/MyLibrayDemo/JDYOpenLibray_v1.0.2",
 					"$(PROJECT_DIR)/MyLibrayDemo/JDYOpenLibray_v1.0.3",
 					"$(PROJECT_DIR)/JDYOpenLibray_v1.0.3",
+					"$(PROJECT_DIR)/MyLibrayDemo/JDYOpenLibray_v1.0.4",
 				);
 				INFOPLIST_FILE = MyLibrayDemo/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
