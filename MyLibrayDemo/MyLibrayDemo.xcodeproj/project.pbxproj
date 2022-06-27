@@ -7,8 +7,12 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		B4A5CC6A284EF930007F3DC2 /* JDYOpenLibray.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B4A5CC68284EF930007F3DC2 /* JDYOpenLibray.framework */; };
-		B4A5CC6B284EF930007F3DC2 /* JDYOpenLibray.bundle in Resources */ = {isa = PBXBuildFile; fileRef = B4A5CC69284EF930007F3DC2 /* JDYOpenLibray.bundle */; };
+		B454F56128697BDC00CB9180 /* JDYBillPrintManager.m in Sources */ = {isa = PBXBuildFile; fileRef = B454F55228697BDC00CB9180 /* JDYBillPrintManager.m */; };
+		B454F56228697BDC00CB9180 /* NetWorkPrintSettingViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B454F55428697BDC00CB9180 /* NetWorkPrintSettingViewController.m */; };
+		B454F56328697BDC00CB9180 /* AsyncSocket.m in Sources */ = {isa = PBXBuildFile; fileRef = B454F55828697BDC00CB9180 /* AsyncSocket.m */; };
+		B454F56428697BDC00CB9180 /* NetworkPrintManager.m in Sources */ = {isa = PBXBuildFile; fileRef = B454F55A28697BDC00CB9180 /* NetworkPrintManager.m */; };
+		B454F56528697BDC00CB9180 /* BlueToothListController.m in Sources */ = {isa = PBXBuildFile; fileRef = B454F55F28697BDC00CB9180 /* BlueToothListController.m */; };
+		B454F56628697BDC00CB9180 /* BlueToothManager.m in Sources */ = {isa = PBXBuildFile; fileRef = B454F56028697BDC00CB9180 /* BlueToothManager.m */; };
 		C5C83B1B27DB007500D9E5BA /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = C5C83B1A27DB007500D9E5BA /* AppDelegate.m */; };
 		C5C83B1E27DB007500D9E5BA /* SceneDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = C5C83B1D27DB007500D9E5BA /* SceneDelegate.m */; };
 		C5C83B2127DB007500D9E5BA /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C5C83B2027DB007500D9E5BA /* ViewController.m */; };
@@ -21,8 +25,18 @@
 /* Begin PBXFileReference section */
 		1C089C7B66987EF3FE948F63 /* Pods-MyLibrayDemo.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MyLibrayDemo.release.xcconfig"; path = "Target Support Files/Pods-MyLibrayDemo/Pods-MyLibrayDemo.release.xcconfig"; sourceTree = "<group>"; };
 		22D2E1AED10C34C5B2672F41 /* Pods-MyLibrayDemo.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MyLibrayDemo.debug.xcconfig"; path = "Target Support Files/Pods-MyLibrayDemo/Pods-MyLibrayDemo.debug.xcconfig"; sourceTree = "<group>"; };
-		B4A5CC68284EF930007F3DC2 /* JDYOpenLibray.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = JDYOpenLibray.framework; sourceTree = "<group>"; };
-		B4A5CC69284EF930007F3DC2 /* JDYOpenLibray.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = JDYOpenLibray.bundle; sourceTree = "<group>"; };
+		B454F55228697BDC00CB9180 /* JDYBillPrintManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JDYBillPrintManager.m; sourceTree = "<group>"; };
+		B454F55428697BDC00CB9180 /* NetWorkPrintSettingViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NetWorkPrintSettingViewController.m; sourceTree = "<group>"; };
+		B454F55528697BDC00CB9180 /* NetworkPrintManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NetworkPrintManager.h; sourceTree = "<group>"; };
+		B454F55728697BDC00CB9180 /* AsyncSocket.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AsyncSocket.h; sourceTree = "<group>"; };
+		B454F55828697BDC00CB9180 /* AsyncSocket.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AsyncSocket.m; sourceTree = "<group>"; };
+		B454F55928697BDC00CB9180 /* NetWorkPrintSettingViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NetWorkPrintSettingViewController.h; sourceTree = "<group>"; };
+		B454F55A28697BDC00CB9180 /* NetworkPrintManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NetworkPrintManager.m; sourceTree = "<group>"; };
+		B454F55B28697BDC00CB9180 /* JDYBillPrintManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JDYBillPrintManager.h; sourceTree = "<group>"; };
+		B454F55D28697BDC00CB9180 /* BlueToothListController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BlueToothListController.h; sourceTree = "<group>"; };
+		B454F55E28697BDC00CB9180 /* BlueToothManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BlueToothManager.h; sourceTree = "<group>"; };
+		B454F55F28697BDC00CB9180 /* BlueToothListController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BlueToothListController.m; sourceTree = "<group>"; };
+		B454F56028697BDC00CB9180 /* BlueToothManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BlueToothManager.m; sourceTree = "<group>"; };
 		C5C83B1627DB007500D9E5BA /* MyLibrayDemo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MyLibrayDemo.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		C5C83B1927DB007500D9E5BA /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		C5C83B1A27DB007500D9E5BA /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
@@ -42,7 +56,6 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				B4A5CC6A284EF930007F3DC2 /* JDYOpenLibray.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -58,14 +71,48 @@
 			path = Pods;
 			sourceTree = "<group>";
 		};
-		B4A5CC67284EF930007F3DC2 /* JDYOpenLibray_v1.0.4 */ = {
+		B454F55128697BDC00CB9180 /* JDYPrinter */ = {
 			isa = PBXGroup;
 			children = (
-				B4A5CC68284EF930007F3DC2 /* JDYOpenLibray.framework */,
-				B4A5CC69284EF930007F3DC2 /* JDYOpenLibray.bundle */,
+				B454F55B28697BDC00CB9180 /* JDYBillPrintManager.h */,
+				B454F55228697BDC00CB9180 /* JDYBillPrintManager.m */,
+				B454F55328697BDC00CB9180 /* NetworkPrint */,
+				B454F55C28697BDC00CB9180 /* BlueToothPrint */,
 			);
-			name = JDYOpenLibray_v1.0.4;
-			path = ../../JDYOpenLibray_v1.0.4;
+			name = JDYPrinter;
+			path = ../../JDYOpenLibray/JDYPrinter;
+			sourceTree = "<group>";
+		};
+		B454F55328697BDC00CB9180 /* NetworkPrint */ = {
+			isa = PBXGroup;
+			children = (
+				B454F55528697BDC00CB9180 /* NetworkPrintManager.h */,
+				B454F55A28697BDC00CB9180 /* NetworkPrintManager.m */,
+				B454F55928697BDC00CB9180 /* NetWorkPrintSettingViewController.h */,
+				B454F55428697BDC00CB9180 /* NetWorkPrintSettingViewController.m */,
+				B454F55628697BDC00CB9180 /* AsyncSocket */,
+			);
+			path = NetworkPrint;
+			sourceTree = "<group>";
+		};
+		B454F55628697BDC00CB9180 /* AsyncSocket */ = {
+			isa = PBXGroup;
+			children = (
+				B454F55728697BDC00CB9180 /* AsyncSocket.h */,
+				B454F55828697BDC00CB9180 /* AsyncSocket.m */,
+			);
+			path = AsyncSocket;
+			sourceTree = "<group>";
+		};
+		B454F55C28697BDC00CB9180 /* BlueToothPrint */ = {
+			isa = PBXGroup;
+			children = (
+				B454F55E28697BDC00CB9180 /* BlueToothManager.h */,
+				B454F56028697BDC00CB9180 /* BlueToothManager.m */,
+				B454F55D28697BDC00CB9180 /* BlueToothListController.h */,
+				B454F55F28697BDC00CB9180 /* BlueToothListController.m */,
+			);
+			path = BlueToothPrint;
 			sourceTree = "<group>";
 		};
 		C5C83B0D27DB007500D9E5BA = {
@@ -89,7 +136,7 @@
 		C5C83B1827DB007500D9E5BA /* MyLibrayDemo */ = {
 			isa = PBXGroup;
 			children = (
-				B4A5CC67284EF930007F3DC2 /* JDYOpenLibray_v1.0.4 */,
+				B454F55128697BDC00CB9180 /* JDYPrinter */,
 				C5C83B1927DB007500D9E5BA /* AppDelegate.h */,
 				C5C83B1A27DB007500D9E5BA /* AppDelegate.m */,
 				C5C83B1C27DB007500D9E5BA /* SceneDelegate.h */,
@@ -171,7 +218,6 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				B4A5CC6B284EF930007F3DC2 /* JDYOpenLibray.bundle in Resources */,
 				C5C83B2927DB007D00D9E5BA /* LaunchScreen.storyboard in Resources */,
 				C5C83B2627DB007D00D9E5BA /* Assets.xcassets in Resources */,
 				C5C83B2427DB007500D9E5BA /* Main.storyboard in Resources */,
@@ -227,10 +273,16 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				B454F56628697BDC00CB9180 /* BlueToothManager.m in Sources */,
+				B454F56228697BDC00CB9180 /* NetWorkPrintSettingViewController.m in Sources */,
+				B454F56528697BDC00CB9180 /* BlueToothListController.m in Sources */,
 				C5C83B2127DB007500D9E5BA /* ViewController.m in Sources */,
+				B454F56428697BDC00CB9180 /* NetworkPrintManager.m in Sources */,
 				C5C83B1B27DB007500D9E5BA /* AppDelegate.m in Sources */,
 				C5C83B2C27DB007D00D9E5BA /* main.m in Sources */,
 				C5C83B1E27DB007500D9E5BA /* SceneDelegate.m in Sources */,
+				B454F56128697BDC00CB9180 /* JDYBillPrintManager.m in Sources */,
+				B454F56328697BDC00CB9180 /* AsyncSocket.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -372,7 +424,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = YZKWAV8875;
+				DEVELOPMENT_TEAM = 6G6K498G3D;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)/MyLibrayDemo",
@@ -389,6 +441,7 @@
 					"$(PROJECT_DIR)/MyLibrayDemo/JDYOpenLibray_v1.0.3",
 					"$(PROJECT_DIR)/JDYOpenLibray_v1.0.3",
 					"$(PROJECT_DIR)/MyLibrayDemo/JDYOpenLibray_v1.0.4",
+					"$(PROJECT_DIR)/JDYOpenLibray_v1.0.4",
 				);
 				INFOPLIST_FILE = MyLibrayDemo/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
@@ -408,7 +461,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = YZKWAV8875;
+				DEVELOPMENT_TEAM = 6G6K498G3D;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)/MyLibrayDemo",
@@ -425,6 +478,7 @@
 					"$(PROJECT_DIR)/MyLibrayDemo/JDYOpenLibray_v1.0.3",
 					"$(PROJECT_DIR)/JDYOpenLibray_v1.0.3",
 					"$(PROJECT_DIR)/MyLibrayDemo/JDYOpenLibray_v1.0.4",
+					"$(PROJECT_DIR)/JDYOpenLibray_v1.0.4",
 				);
 				INFOPLIST_FILE = MyLibrayDemo/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 9.0;

@@ -21,19 +21,32 @@
 
 @interface JDYBillPrintManager : NSObject
 
+
+/// 选择打印机界面
+/// @param type blueTooth、network
+/// @param printDeviceId 设备id
+/// @param selectCallBack 选择回调
+/// @param cancelCallBack 取消回调
 +(void)selectPrinterWitType:(NSString*)type
               printDeviceId:(NSString*)printDeviceId
              selectCallBack:(void(^)(JDYBlueToothModel *blueToothModel))selectCallBack
              cancelCallBack:(void(^)(void))cancelCallBack;
 
+/// 获取本地存储的打印机设备列表
+/// @param printDeviceId 设备id
+/// @param callBack 回调
 +(void)getPrinterWithDeviceId:(NSString*)printDeviceId callBack:(void(^)(NSArray* printList))callBack;
 
-//只支持hex
-+(void)printDatasWithData:(NSString*)data
-          succeedCallBack:(void(^)(NSString *traceId, NSString *printDeviceId))succeedCallBack
-           failedCallBack:(void(^)(NSString * traceId, NSString * printDeviceId,int errCode, NSString * errMsg))failedCallBack;
+//(旧)只支持hex
+//+(void)printDatasWithData:(NSString*)data
+//          succeedCallBack:(void(^)(NSString *traceId, NSString *printDeviceId))succeedCallBack
+//           failedCallBack:(void(^)(NSString * traceId, NSString * printDeviceId,int errCode, NSString * errMsg))failedCallBack;
 
-//data支持base64/hex
+
+/// 数据打印data支持base64/hex
+/// @param dataStr jsonstr格式参考文档
+/// @param succeedCallBack 成功回调
+/// @param failedCallBack 失败回调
 +(void)printMutableDatasWithData:(NSString*)dataStr
           succeedCallBack:(void(^)(NSString *traceId, NSString *printDeviceId))succeedCallBack
            failedCallBack:(void(^)(NSString * traceId, NSString * printDeviceId,int errCode, NSString * errMsg))failedCallBack;

@@ -15,10 +15,14 @@ static int SEARCH_REPEAT_NUM = 10; // 搜索设备定时器计数
 
 @property(nonatomic,strong)CBCentralManager *centralManager;
 
-@property (nonatomic, strong)NSTimer *timer;
+@property (nonatomic, strong)NSTimer *searchPeriTimer;
+@property (nonatomic, strong)NSTimer *chaTimer;
 
 @property(nonatomic) SearchPeripheralFinishBlock searchPeripheralFinishBlock;
 @property(nonatomic) SearchCharacteristicFinishBlock searchCharacteristicFinishBlock;
+@property(nonatomic) WriteDataBlock writeDataBlock;
+
+@property(nonatomic,strong)NSMutableArray *connectedList;//记录已连接配对的设备列表
 @end
 
 static BlueToothManager *instance = nil;
@@ -31,20 +35,29 @@ static BlueToothManager *instance = nil;
 + (instancetype)sharedInstance{
     return [[self alloc] init];
 }
-
+//-(void)dealloc{
+//    NSLog(@"BlueToothManager销毁--------");
+//}
 - (instancetype)init{
     static dispatch_once_t onceToken;
     dispatch_once(&onceToken, ^{
         instance = [super init];
         instance.peripheralList = [[NSMutableArray alloc] init];
+        instance.connectedList = [[NSMutableArray alloc]initWithCapacity:0];
         [instance resetBLEModel];
     });
     return instance;
 }
 - (void)resetBLEModel
 {
-    _centralManager = [[CBCentralManager alloc] initWithDelegate:self queue:dispatch_get_main_queue()];
+//    _centralManager = [[CBCentralManager alloc] initWithDelegate:self queue:dispatch_get_main_queue()];
     [_peripheralList removeAllObjects];
+}
+-(CBCentralManager*)centralManager{
+    if (!_centralManager) {
+        _centralManager = [[CBCentralManager alloc] initWithDelegate:self queue:dispatch_get_main_queue()];
+    }
+    return _centralManager;
 }
 -(BOOL)isScaning{
     if (self.centralManager ==nil) {
@@ -53,18 +66,28 @@ static BlueToothManager *instance = nil;
     return self.centralManager.isScanning;
 }
 -(void)startScan{
-    if (_centralManager.state == CBCentralManagerStatePoweredOn) {
-        [_centralManager scanForPeripheralsWithServices:nil options:nil];
+    if ([self isScaning]) return;
+    NSLog(@"开始扫描外设....");
+    //15秒后停止扫描
+    [NSTimer scheduledTimerWithTimeInterval:15 target:self selector:@selector(stopScan) userInfo:nil repeats:NO];
+//    [[NSRunLoop currentRunLoop]run];
+    if (self.centralManager.state == CBCentralManagerStatePoweredOn) {
+        [self.centralManager scanForPeripheralsWithServices:nil options:nil];
+        [_peripheralList removeAllObjects];
+        if (_connectedList.count) {
+            [_peripheralList addObjectsFromArray:_connectedList];
+        }
         return;
     }
     [self resetBLEModel];
 }
+
 -(void)stopScan{
-    [_centralManager stopScan];
+    NSLog(@"停止外设扫描....");
+    [self.centralManager stopScan];
 }
 
 - (void)connectPeripheral:(CBPeripheral *)peripheral{
-    [self.centralManager stopScan];
     NSLog(@"peripheral (%@) connecting...",peripheral.name);
     [self.centralManager connectPeripheral:peripheral options:nil];
 }
@@ -75,7 +98,6 @@ static BlueToothManager *instance = nil;
 }
 -(void)searchPeripheralWithUUid:(NSString*)uuidString finishBlock:(SearchPeripheralFinishBlock)finishBlock{
     self.searchPeripheralFinishBlock = finishBlock;
-    NSLog(@"search peripheral: %@...",uuidString);
     CBPeripheral *result = [self searchPeripherals:uuidString];
     if (result !=nil) {
         if (finishBlock) {
@@ -87,10 +109,12 @@ static BlueToothManager *instance = nil;
         [self startScan];
     }
     _searchPeripheraTime = 0;
-    self.timer = [NSTimer scheduledTimerWithTimeInterval:0.5 target:self selector:@selector(timerSearchPeripherals:) userInfo:uuidString repeats:YES];
+    self.searchPeriTimer = [NSTimer scheduledTimerWithTimeInterval:0.5 target:self selector:@selector(timerSearchPeripherals:) userInfo:uuidString repeats:YES];
+//    [[NSRunLoop currentRunLoop]run];
 }
 -(void)timerSearchPeripherals:(NSTimer *)timer{
     _searchPeripheraTime++;
+    NSLog(@"轮询搜索外设列表次数:%d",_searchPeripheraTime);
     NSString *uuidString = [timer userInfo];
     CBPeripheral *result = [self searchPeripherals:uuidString];
     if (result !=nil) {
@@ -108,7 +132,7 @@ static BlueToothManager *instance = nil;
 }
 
 -(CBPeripheral*)searchPeripherals:(NSString*)uuidString{
-    NSLog(@"search peripheral: %@...",uuidString);
+    NSLog(@"search peripheral: %@...%p...%p",uuidString,self,self.centralManager);
     CBPeripheral *result = nil;
     for (CBPeripheral *peripheral in self.peripheralList) {
         if ([peripheral.identifier.UUIDString isEqualToString: uuidString]) {
@@ -126,6 +150,7 @@ static BlueToothManager *instance = nil;
 -(void)connectAndSearchPeripheralCharacteristic:(CBPeripheral*)peripheral finishBlock:(SearchCharacteristicFinishBlock)finishBlock{
     self.searchCharacteristicFinishBlock = finishBlock;
     if (peripheral.state ==CBPeripheralStateConnected) {
+        self.currentPeripheral = peripheral;
         // 已连接，找设备可写特征
         CBCharacteristic *characteristic = [self searchPeripheralCharacteristics:peripheral];
         if (characteristic !=nil) {
@@ -134,18 +159,21 @@ static BlueToothManager *instance = nil;
         }
         // 没找到可写特征，去搜索
         [peripheral discoverServices:nil];
-        
     }else{
+        [self.centralManager stopScan];
         [self connectPeripheral:peripheral];
     }
     // 启动一个定时器
     _searchCharTime =0;
-    [NSTimer scheduledTimerWithTimeInterval:0.5 target:self selector:@selector(timerSearchCharacteristics:) userInfo:peripheral repeats:YES];
+    self.chaTimer = [NSTimer scheduledTimerWithTimeInterval:0.5 target:self selector:@selector(timerSearchCharacteristics:) userInfo:peripheral repeats:YES];
+//    [[NSRunLoop currentRunLoop]run];
     
 }
 
 -(void)timerSearchCharacteristics:(NSTimer *)timer{
     _searchCharTime++;
+    NSLog(@"轮询搜索特征码列表次数%d",_searchCharTime);
+    
     CBPeripheral *peripheral = [timer userInfo];
     CBCharacteristic *characteristic = [self searchPeripheralCharacteristics:peripheral];
     if (characteristic !=nil) {
@@ -195,6 +223,7 @@ static BlueToothManager *instance = nil;
     return write_withoutresponse_characteristic;
 }
 -(void)writeData:(NSData *)data peripheralName:(NSString*)name uuid:(NSString*)uuid writeDataBlock:(void(^)(NSString * errMsg))writeDataBlock{
+    self.writeDataBlock = writeDataBlock;
     if (data ==nil) {
         NSLog(@"打印数据为空");
         if (writeDataBlock) {
@@ -261,6 +290,7 @@ static BlueToothManager *instance = nil;
         NSData *subData =[data subdataWithRange:range];
         [peripheral writeValue:subData forCharacteristic:characteristic type:writeType];
     }
+    NSLog(@"往外设写入数据");
     
 }
 -(void)addPeripheral:(CBPeripheral*)peripheral{
@@ -332,24 +362,46 @@ static BlueToothManager *instance = nil;
 }
 
 - (void)centralManager:(CBCentralManager *)central didDiscoverPeripheral:(CBPeripheral *)peripheral advertisementData:(NSDictionary<NSString *, id> *)advertisementData RSSI:(NSNumber *)RSSI{
+    if (peripheral.name) {
+        NSLog(@"发现外设%@",peripheral.name);
+    }
     [self addPeripheral:peripheral];
 }
 
 - (void)centralManager:(CBCentralManager *)central didConnectPeripheral:(CBPeripheral *)peripheral{
     NSLog(@"peripheral %@ connected",peripheral.name);
-    //        self.currentConnect = peripheral;
     peripheral.delegate = self;
     [peripheral discoverServices:nil];
     [[NSNotificationCenter defaultCenter]postNotificationName:Notify_BLEPeripherals_Update object:nil];
     [[NSNotificationCenter defaultCenter]postNotificationName:Notify_BLEConnectPeripheral_Changed object:nil];
+    [self.connectedList addObject:peripheral];
+    self.currentPeripheral = peripheral;
 }
 - (void)centralManager:(CBCentralManager *)central didFailToConnectPeripheral:(CBPeripheral *)peripheral error:(nullable NSError *)error{
     NSLog(@"peripheral %@ fail connected",peripheral.name);
     [[NSNotificationCenter defaultCenter]postNotificationName:Notify_BLEPeripherals_Update object:nil];
 }
-- (void)centralManager:(CBCentralManager *)central didDisconnectPeripheral:(CBPeripheral *)peripheral error:(nullable NSError *)error{
+- (void)centralManager:(CBCentralManager *)central didDisconnectPeripheral:(CBPeripheral *)peripheral error:(nullable NSError *)error{//已连接的设备手动关闭设备会调用这里
         NSLog(@"peripheral %@  disconnected",peripheral.name);
+    if ([self.connectedList containsObject:peripheral]) {
+        [self.connectedList removeObject:peripheral];
+        //当前连接外设设置为nil
+        if ([peripheral.identifier.UUIDString isEqualToString:self.currentPeripheral.identifier.UUIDString]) {
+            self.currentPeripheral = nil;
+        }
+    }
         //        self.currentConnect = nil;
         [[NSNotificationCenter defaultCenter]postNotificationName:Notify_BLEPeripherals_Update object:nil];
+}
+
+#pragma mark ---------------- 写入数据的回调 --------------------
+- (void)peripheral:(CBPeripheral *)peripheral didWriteValueForCharacteristic:(CBCharacteristic *)characteristic error:(nullable NSError *)error{
+    if (error) {
+        if (self.writeDataBlock) {
+            self.writeDataBlock(@"写入数据失败");
+        }
+    } else {
+        NSLog(@"已成功发送至蓝牙设备");
+    }
 }
 @end

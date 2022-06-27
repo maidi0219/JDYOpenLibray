@@ -109,6 +109,7 @@ static NetworkPrintManager *instance = nil;
         // 启动一个定时器检测是否连接成功
         _connectTime =0;
         [NSTimer scheduledTimerWithTimeInterval:0.5 target:self selector:@selector(timerRepeatCheck:) userInfo:nil repeats:YES];
+//        [[NSRunLoop currentRunLoop]run];
     }
 }
 

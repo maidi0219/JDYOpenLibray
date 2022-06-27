@@ -28,16 +28,18 @@ typedef NS_ENUM(NSInteger, JDYPrintErrorCodeNum) {
               printDeviceId:(NSString*)printDeviceId
              selectCallBack:(void(^)(JDYBlueToothModel *blueToothModel))selectCallBack
              cancelCallBack:(void(^)(void))cancelCallBack{
-    if ([type isEqualToString:@"network"]) {//增加网络打印入口
-        
-        JDYBlueToothModel *defaultModel = nil;
-        NSArray *list = [self localPrintList];
-        for (JDYBlueToothModel *model in list) {
-            if ([printDeviceId isEqualToString:model.printDeviceId]) {
-                defaultModel = model;
-                break;
-            }
+    
+    //获取本地printDeviceId对应默认打印机
+    JDYBlueToothModel *defaultModel = nil;
+    NSArray *list = [self localPrintList];
+    for (JDYBlueToothModel *model in list) {
+        if ([printDeviceId isEqualToString:model.printDeviceId]) {
+            defaultModel = model;
+            break;
         }
+    }
+    
+    if ([type isEqualToString:@"network"]) {//增加网络打印入口
         NetWorkPrintSettingViewController *netVc = [[NetWorkPrintSettingViewController alloc]init];
         [netVc setContViewWithIp:defaultModel.networkIp port:defaultModel.networkPort];
         UINavigationController *nav = [[UINavigationController alloc]initWithRootViewController:netVc];
@@ -62,6 +64,7 @@ typedef NS_ENUM(NSInteger, JDYPrintErrorCodeNum) {
         };
     }else{//蓝牙
         BlueToothListController *periList = [[BlueToothListController alloc]init];
+        periList.uuidStr = defaultModel.address;
         UINavigationController *nav = [[UINavigationController alloc]initWithRootViewController:periList];
         [[[UIApplication sharedApplication] keyWindow].rootViewController presentViewController:nav animated:YES completion:nil];
         periList.connectFinishBlock = ^(CBPeripheral *perpheral){
@@ -151,114 +154,72 @@ typedef NS_ENUM(NSInteger, JDYPrintErrorCodeNum) {
     }
 }
 
-+(void)printDatasWithData:(NSString*)dataStr
-          succeedCallBack:(void(^)(NSString *traceId, NSString *printDeviceId))succeedCallBack
-           failedCallBack:(void(^)(NSString * traceId, NSString * printDeviceId, int errCode, NSString * errMsg))failedCallBack{
-    NSDictionary *dic=  [self dictionaryWithJsonString:dataStr];
-    NSDictionary *dataDic =[dic objectForKey:@"data"];
-    NSString *printDeviceId = [dataDic objectForKey:@"printDeviceId"];
-    NSString *traceId = [dataDic objectForKey:@"traceId"];
-    NSArray *printInfoDics= [dataDic objectForKey:@"printInfo"];
-    if (!dataDic || !printDeviceId || !traceId || !printInfoDics) {
-        if (failedCallBack) {
-            failedCallBack(nil,nil ,JDYPrintErrorCodeNumParamError,@"请求参数错误");
-        }
-        return;
-    }
-    [self getPrinterWithDeviceId:printDeviceId callBack:^(NSArray *printList) {
-        if (printList.count ==0) {
-            if (failedCallBack) {
-                failedCallBack(traceId,printDeviceId ,JDYPrintErrorCodeNumNotConnectError,@"未设置打印机");
-            }
-            return;
-        }else{
-            [self printInfoDicWithToothModel:printList.firstObject idex:0 printInfoDics:printInfoDics compeleteBlcok:^(int errCode,NSString *errMsg) {
-                if (errMsg) {
-                    if (failedCallBack) {
-                        failedCallBack(traceId,printDeviceId,errCode,errMsg);
-                    }
-                }else{
-                    if (succeedCallBack) {
-                        succeedCallBack(traceId,printDeviceId);
-                    }
-                }
-            }];
-        }
-    }];
-}
-
-
-+(void)printInfoDicWithToothModel:(JDYBlueToothModel*)model idex:(NSInteger)index printInfoDics:(NSArray*)printInfoDics compeleteBlcok:(void(^)(int errCode,NSString * errMsg))compeleteBlcok{
-    __block NSInteger i = index;
-    i++;
-    NSDictionary *dic =printInfoDics[index];
-    NSString *dataStr =[dic objectForKey:@"data"];
-    NSData *data =[self dataWithHexString:dataStr];
-    if (!data && compeleteBlcok) {
-        compeleteBlcok(JDYPrintErrorCodeNumParamError,@"打印数据data为空，或者数据data格式异常");
-        return;
-    }
-    NSInteger times =[[dic objectForKey:@"times"] intValue];
-    if (times ==0) {
-        times =1;
-    }
-    [self printDatasWithtimes:times data:data model:model block:^(NSString *errMsg) {
-      
-        if (errMsg) {
-            if (compeleteBlcok) {
-                compeleteBlcok(JDYPrintErrorCodeNumPrinterConnecrError,errMsg);
-            }
-            //报错之后不再往下执行
-            return;
-        }else{
-            if (printInfoDics.count ==i) {
-                //全部打印完成回调
-                if (compeleteBlcok) {
-                    compeleteBlcok(0,nil);
-                }
-            }
-        }
-        if (i < printInfoDics.count) {//递归调用
-            [self printInfoDicWithToothModel:model idex:i printInfoDics:printInfoDics compeleteBlcok:compeleteBlcok];
-        }
-    }];
-}
-
 +(void)printMutableDatasWithData:(NSString*)dataStr
-          succeedCallBack:(void(^)(NSString *traceId, NSString *printDeviceId))succeedCallBack
+                 succeedCallBack:(void(^)(NSString *traceId, NSString *printDeviceId))succeedCallBack
                   failedCallBack:(void(^)(NSString * traceId, NSString * printDeviceId,int errCode, NSString * errMsg))failedCallBack{
     NSDictionary *dic=  [self dictionaryWithJsonString:dataStr];
     NSDictionary *dataDic =[dic objectForKey:@"data"];
     NSString *printDeviceId = [dataDic objectForKey:@"printDeviceId"];//printDeviceId可以为空，直接由外面传printer
     NSString *traceId = [dataDic objectForKey:@"traceId"];
     NSArray *printInfoDics= [dataDic objectForKey:@"printInfo"];
-    if (!dataDic || !printDeviceId || !traceId || !printInfoDics) {
+    NSDictionary *printerDic =[dataDic objectForKey:@"printer"];//零售可能不用.framework的缓存数据打印机信息
+    
+    if (!dataDic || !traceId || !printInfoDics) {
         if (failedCallBack) {
             failedCallBack(nil,nil ,JDYPrintErrorCodeNumParamError,@"请求参数错误");
         }
         return;
     }
-    [self getPrinterWithDeviceId:printDeviceId callBack:^(NSArray *printList) {
-        if (printList.count ==0) {
-            if (failedCallBack) {
-                failedCallBack(traceId,printDeviceId ,JDYPrintErrorCodeNumNotConnectError,@"未设置打印机");
-            }
-            return;
-        }else{
-            [self printMutableInfoDicWithToothModel:printList.firstObject idex:0 printInfoDics:printInfoDics compeleteBlcok:^(int errCode,NSString *errMsg) {
-                if (errMsg) {
-                    if (failedCallBack) {
-                        failedCallBack(traceId,printDeviceId,errCode,errMsg);
-                    }
-                }else{
-                    if (succeedCallBack) {
-                        succeedCallBack(traceId,printDeviceId);
-                    }
-                }
-            }];
-        }
-    }];
     
+    if (printerDic && printDeviceId) {
+        if (failedCallBack) {
+            failedCallBack(nil,nil ,JDYPrintErrorCodeNumParamError,@"请求参数错误");
+        }
+        return;
+    }
+    if (printDeviceId) {//拿本地缓存打印信息来打印
+        [self getPrinterWithDeviceId:printDeviceId callBack:^(NSArray *printList) {
+            if (printList.count ==0) {
+                if (failedCallBack) {
+                    failedCallBack(traceId,printDeviceId ,JDYPrintErrorCodeNumNotConnectError,@"未设置打印机");
+                }
+                return;
+            }else{
+                [self printMutableInfoDicWithToothModel:printList.firstObject idex:0 printInfoDics:printInfoDics compeleteBlcok:^(int errCode,NSString *errMsg) {
+                    if (errMsg) {
+                        if (failedCallBack) {
+                            failedCallBack(traceId,printDeviceId,errCode,errMsg);
+                        }
+                    }else{
+                        if (succeedCallBack) {
+                            succeedCallBack(traceId,printDeviceId);
+                        }
+                    }
+                }];
+            }
+        }];
+    }else{//打印方式2：适配零售传参【printer】
+        JDYBlueToothModel *model = [[JDYBlueToothModel alloc]init];
+        model.name =[printerDic objectForKey:@"name"];
+        model.printDeviceId =[printerDic objectForKey:@"printDeviceId"];
+        model.type =[printerDic objectForKey:@"type"];
+        model.address =[printerDic objectForKey:@"address"];
+        model.networkPort =[printerDic objectForKey:@"networkPort"];
+        model.networkIp =[printerDic objectForKey:@"networkIp"];
+        [self printMutableInfoDicWithToothModel:model idex:0 printInfoDics:printInfoDics compeleteBlcok:^(int errCode,NSString *errMsg) {
+            if (errMsg) {
+                if (failedCallBack) {
+                    failedCallBack(traceId,printDeviceId,errCode,errMsg);
+                }
+            }else{
+                if (succeedCallBack) {
+                    succeedCallBack(traceId,printDeviceId);
+                }
+            }
+        }];
+        
+    }
+
 }
 
 +(void)printMutableInfoDicWithToothModel:(JDYBlueToothModel*)model idex:(NSInteger)index printInfoDics:(NSArray*)printInfoDics compeleteBlcok:(void(^)(int errCode,NSString * errMsg))compeleteBlcok{
@@ -355,29 +316,6 @@ typedef NS_ENUM(NSInteger, JDYPrintErrorCodeNum) {
     }
 }
 
-
-+(void)printDatasWithtimes:(NSInteger)times data:(NSData*)data model:(JDYBlueToothModel*)model block:(void(^)(NSString *errMsg))block{
-    __block NSInteger t = times;
-    if (t>0) {
-        __weak typeof(self) wkSelf = self;
-        [[BlueToothManager sharedInstance]writeData:data peripheralName:model.name uuid:model.address writeDataBlock:^(NSString *errMsg) {
-            if (errMsg) {
-                if (block) {
-                    block(errMsg);
-                }
-                return;
-            }
-            t--;
-            [wkSelf printDatasWithtimes:t data:data model:model block:block];
-            if (t==0) {//打印完成一次个InfoDic
-                if (block) {
-                    block(nil);
-                }
-            }
-        }];
-    }
-}
-
 +(void)printDataWithData:(NSData*)data model:(JDYBlueToothModel*)model block:(void(^)(NSString *errMsg))block{
     if ([model.type isEqualToString:@"network"]) {
         [[NetworkPrintManager sharedInstance]writeData:data ip:model.networkIp port:model.networkPort writeDataBlock:^(NSString *errMsg) {
@@ -407,8 +345,103 @@ typedef NS_ENUM(NSInteger, JDYPrintErrorCodeNum) {
 
 }
 
+/**
+ *  以下为旧格式打印数据方法
+ */
+//+(void)printDatasWithData:(NSString*)dataStr
+//          succeedCallBack:(void(^)(NSString *traceId, NSString *printDeviceId))succeedCallBack
+//           failedCallBack:(void(^)(NSString * traceId, NSString * printDeviceId, int errCode, NSString * errMsg))failedCallBack{
+//    NSDictionary *dic=  [self dictionaryWithJsonString:dataStr];
+//    NSDictionary *dataDic =[dic objectForKey:@"data"];
+//    NSString *printDeviceId = [dataDic objectForKey:@"printDeviceId"];
+//    NSString *traceId = [dataDic objectForKey:@"traceId"];
+//    NSArray *printInfoDics= [dataDic objectForKey:@"printInfo"];
+//    if (!dataDic || !printDeviceId || !traceId || !printInfoDics) {
+//        if (failedCallBack) {
+//            failedCallBack(nil,nil ,JDYPrintErrorCodeNumParamError,@"请求参数错误");
+//        }
+//        return;
+//    }
+//    [self getPrinterWithDeviceId:printDeviceId callBack:^(NSArray *printList) {
+//        if (printList.count ==0) {
+//            if (failedCallBack) {
+//                failedCallBack(traceId,printDeviceId ,JDYPrintErrorCodeNumNotConnectError,@"未设置打印机");
+//            }
+//            return;
+//        }else{
+//            [self printInfoDicWithToothModel:printList.firstObject idex:0 printInfoDics:printInfoDics compeleteBlcok:^(int errCode,NSString *errMsg) {
+//                if (errMsg) {
+//                    if (failedCallBack) {
+//                        failedCallBack(traceId,printDeviceId,errCode,errMsg);
+//                    }
+//                }else{
+//                    if (succeedCallBack) {
+//                        succeedCallBack(traceId,printDeviceId);
+//                    }
+//                }
+//            }];
+//        }
+//    }];
+//}
 
 
+//+(void)printInfoDicWithToothModel:(JDYBlueToothModel*)model idex:(NSInteger)index printInfoDics:(NSArray*)printInfoDics compeleteBlcok:(void(^)(int errCode,NSString * errMsg))compeleteBlcok{
+//    __block NSInteger i = index;
+//    i++;
+//    NSDictionary *dic =printInfoDics[index];
+//    NSString *dataStr =[dic objectForKey:@"data"];
+//    NSData *data =[self dataWithHexString:dataStr];
+//    if (!data && compeleteBlcok) {
+//        compeleteBlcok(JDYPrintErrorCodeNumParamError,@"打印数据data为空，或者数据data格式异常");
+//        return;
+//    }
+//    NSInteger times =[[dic objectForKey:@"times"] intValue];
+//    if (times ==0) {
+//        times =1;
+//    }
+//    [self printDatasWithtimes:times data:data model:model block:^(NSString *errMsg) {
+//
+//        if (errMsg) {
+//            if (compeleteBlcok) {
+//                compeleteBlcok(JDYPrintErrorCodeNumPrinterConnecrError,errMsg);
+//            }
+//            //报错之后不再往下执行
+//            return;
+//        }else{
+//            if (printInfoDics.count ==i) {
+//                //全部打印完成回调
+//                if (compeleteBlcok) {
+//                    compeleteBlcok(0,nil);
+//                }
+//            }
+//        }
+//        if (i < printInfoDics.count) {//递归调用
+//            [self printInfoDicWithToothModel:model idex:i printInfoDics:printInfoDics compeleteBlcok:compeleteBlcok];
+//        }
+//    }];
+//}
+
+//+(void)printDatasWithtimes:(NSInteger)times data:(NSData*)data model:(JDYBlueToothModel*)model block:(void(^)(NSString *errMsg))block{
+//    __block NSInteger t = times;
+//    if (t>0) {
+//        __weak typeof(self) wkSelf = self;
+//        [[BlueToothManager sharedInstance]writeData:data peripheralName:model.name uuid:model.address writeDataBlock:^(NSString *errMsg) {
+//            if (errMsg) {
+//                if (block) {
+//                    block(errMsg);
+//                }
+//                return;
+//            }
+//            t--;
+//            [wkSelf printDatasWithtimes:t data:data model:model block:block];
+//            if (t==0) {//打印完成一次个InfoDic
+//                if (block) {
+//                    block(nil);
+//                }
+//            }
+//        }];
+//    }
+//}
 
 /**
  *    @brief    将字符表示的16进制数转化为二进制数据

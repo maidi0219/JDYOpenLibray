@@ -102,7 +102,7 @@
 			path = JDYSignUp;
 			sourceTree = "<group>";
 		};
-		B4A5CBF1284EE028007F3DC2 /* JDYBlueTooth */ = {
+		B4A5CBF1284EE028007F3DC2 /* JDYPrinter */ = {
 			isa = PBXGroup;
 			children = (
 				B4A5CBFC284EE028007F3DC2 /* JDYBillPrintManager.h */,
@@ -110,7 +110,7 @@
 				B4A5CBF3284EE028007F3DC2 /* NetworkPrint */,
 				B4A5CBFD284EE028007F3DC2 /* BlueToothPrint */,
 			);
-			path = JDYBlueTooth;
+			path = JDYPrinter;
 			sourceTree = "<group>";
 		};
 		B4A5CBF3284EE028007F3DC2 /* NetworkPrint */ = {
@@ -137,10 +137,10 @@
 		B4A5CBFD284EE028007F3DC2 /* BlueToothPrint */ = {
 			isa = PBXGroup;
 			children = (
-				B4A5CBFE284EE028007F3DC2 /* BlueToothListController.h */,
 				B4A5CBFF284EE028007F3DC2 /* BlueToothManager.h */,
-				B4A5CC00284EE028007F3DC2 /* BlueToothListController.m */,
 				B4A5CC01284EE028007F3DC2 /* BlueToothManager.m */,
+				B4A5CBFE284EE028007F3DC2 /* BlueToothListController.h */,
+				B4A5CC00284EE028007F3DC2 /* BlueToothListController.m */,
 			);
 			path = BlueToothPrint;
 			sourceTree = "<group>";
@@ -180,7 +180,7 @@
 			isa = PBXGroup;
 			children = (
 				C5C83AFD27DAF74C00D9E5BA /* JDYOpenLibray.h */,
-				B4A5CBF1284EE028007F3DC2 /* JDYBlueTooth */,
+				B4A5CBF1284EE028007F3DC2 /* JDYPrinter */,
 				B44A5AA827F59A6A00F25B0F /* JDYSignUp */,
 				C54BE64127DD9B4100165BDE /* Extension */,
 				C5C83AFE27DAF74C00D9E5BA /* Info.plist */,
@@ -495,7 +495,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1.0.4;
 				DEFINES_MODULE = YES;
-				DEVELOPMENT_TEAM = YZKWAV8875;
+				DEVELOPMENT_TEAM = 8BFL9MCCE8;
 				DYLIB_COMPATIBILITY_VERSION = 1;
 				DYLIB_CURRENT_VERSION = 1;
 				DYLIB_INSTALL_NAME_BASE = "@rpath";
@@ -523,7 +523,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1.0.4;
 				DEFINES_MODULE = YES;
-				DEVELOPMENT_TEAM = YZKWAV8875;
+				DEVELOPMENT_TEAM = 8BFL9MCCE8;
 				DYLIB_COMPATIBILITY_VERSION = 1;
 				DYLIB_CURRENT_VERSION = 1;
 				DYLIB_INSTALL_NAME_BASE = "@rpath";

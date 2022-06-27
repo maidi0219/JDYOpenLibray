@@ -14,5 +14,6 @@ typedef void(^ConnectCancelBlock)(void);
 @interface BlueToothListController : UITableViewController
 @property(nonatomic)ConnectFinidhedBlock connectFinishBlock;// 蓝牙连接完毕的回调
 @property(nonatomic)ConnectCancelBlock connectCancelBlock;// 蓝牙连接取消
+@property(nonatomic)NSString *uuidStr;
 @end
 

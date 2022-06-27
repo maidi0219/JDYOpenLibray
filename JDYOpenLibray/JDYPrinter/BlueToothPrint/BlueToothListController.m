@@ -16,13 +16,15 @@ static NSString *identifier = @"peripheralCell";
 @property(nonatomic)BlueToothManager *shareManager;
 @property(nonatomic)NSMutableArray *list;
 @property(nonatomic)CBPeripheral *operatingPeripheral;
-
+@property(nonatomic)NSTimer *timer;
 @end
 
 @implementation BlueToothListController{
     NSMutableArray *_dataList;
 }
-
+-(void)dealloc{
+    NSLog(@"销毁vc");
+}
 - (void)viewDidLoad {
     [super viewDidLoad];
     self.tableView.tableFooterView = [UIView new];
@@ -39,7 +41,26 @@ static NSString *identifier = @"peripheralCell";
     UIBarButtonItem *rightItem = [[UIBarButtonItem alloc] initWithTitle:@"刷新" style:UIBarButtonItemStyleDone target:self action:@selector(refresh)];
     [self.navigationItem setRightBarButtonItem:rightItem];
     self.navigationController.navigationBar.tintColor = [self colorWithRGB:0x212121 alpha:1];
+    
+    if (!self.shareManager.currentPeripheral) {
+        self.timer = [NSTimer scheduledTimerWithTimeInterval:2 target:self selector:@selector(checkPeripheralList:) userInfo:nil repeats:YES];
+    }
 }
+
+//轮询当前外设列表是否包含了当前uuid-> 连接当前外设
+-(void)checkPeripheralList:(NSTimer *)timer{
+    for (CBPeripheral *pl in self.list) {
+        if ([pl.identifier.UUIDString isEqualToString:self.uuidStr] && pl.state == CBPeripheralStateDisconnected) {
+            //关了计时器会有小bug(第一次自动连接完成之后->关掉打印机->再开启打印机不会重连了)
+            [timer invalidate];
+            
+            //此时不能停止扫描外设
+            [self.shareManager connectPeripheral:pl];
+            break;
+        }
+    }
+}
+
 -(void)back{
     [self dismissViewControllerAnimated:YES completion:nil];
 }
@@ -48,9 +69,10 @@ static NSString *identifier = @"peripheralCell";
     [self updateDatas];
 }
 -(void)refresh{
-    self.list = self.shareManager.peripheralList;
-    [self updateDatas];
+    [self.shareManager stopScan];
+    [self.shareManager startScan];
 }
+
 -(void)updateDatas{
     _dataList = [[NSMutableArray alloc]initWithCapacity:0];
     NSMutableArray *conList =[[NSMutableArray alloc]initWithCapacity:0];
@@ -69,6 +91,7 @@ static NSString *identifier = @"peripheralCell";
 -(void)viewDidDisappear:(BOOL)animated{
     [super viewDidDisappear:animated];
     [self.shareManager stopScan];
+    [self.timer invalidate];
 }
 -(void)viewWillDisappear:(BOOL)animated{
     [super viewWillDisappear:animated];
@@ -129,6 +152,11 @@ static NSString *identifier = @"peripheralCell";
     NSArray *list =_dataList[indexPath.section];
     CBPeripheral *phe = list[indexPath.row];
     cell.textLabel.text = phe.name;
+    if (phe.state == CBPeripheralStateConnected && [self.shareManager.currentPeripheral.identifier.UUIDString isEqualToString:phe.identifier.UUIDString]) {
+        cell.accessoryType =UITableViewCellAccessoryCheckmark;
+    }else{
+        cell.accessoryType =UITableViewCellAccessoryNone;
+    }
 //    NSString *str = @"未连接";
 //    switch (phe.state) {
 //        case CBPeripheralStateConnected:
